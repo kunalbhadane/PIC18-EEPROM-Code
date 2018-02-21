@@ -14,6 +14,7 @@ void WriteEEPROM(uint16_t address, uint8_t datas) {
     CFGS = 0;
     WREN = 1; //Enable writing of EEPROM
     INTCON_SAVE = INTCON; //Backup INCON interrupt register
+    INTCON = 0x00;
     EECON2 = 0x55; //Required sequence for write to internal EEPROM
     EECON2 = 0xAA; //Required sequence for write to internal EEPROM
     WR = 1; //Initiate write cycle
